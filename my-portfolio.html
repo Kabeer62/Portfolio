@@ -41,11 +41,62 @@
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn" id="viewProjectsBtn">View Projects</a>
-                        <a href="./resume/Resume.pdf" download class="btn btn-secondary">Download Resume</a>
-                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                        <!-- View Resume Button -->
+                        <a href="#" class="btn btn-secondary" onclick="toggleResumePopup()">View Resume</a>
+                        <a href="#" class="btn btn-outline" onclick="toggleContactPopup()">Contact Me</a>
                     </div>
                 </div>
             </section>
+        </div>
+        <div id="resume-popup" class="resume-popup">
+            <div class="resume-popup-content">
+                <span class="close-btn" onclick="toggleResumePopup()">&times;</span>
+                <h2>My Resume</h2>
+                <!-- Embedded Resume PDF -->
+                <embed src="./resume/Resume.pdf" type="application/pdf" width="100%" height="600px">
+                <div class="download-btn-container">
+                    <!-- Download Resume Button inside Modal -->
+                    <a href="./resume/Resume.pdf" download class="btn btn-secondary">Download Resume</a>
+                </div>
+            </div>
+        </div>
+        <div id="contact-popup" class="contact-popup">
+            <div class="contact-popup-content">
+                <span class="close-btn" onclick="toggleContactPopup()">&times;</span>
+                <h2>Contact Me</h2>
+                <!-- Contact Form -->
+                <form id="contactForm" onsubmit="sendMessage(event)">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+        
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+        
+                    <button type="submit" class="btn btn-secondary">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <!-- Success Popup -->
+        <div id="success-popup" class="popup">
+            <div class="popup-content">
+                <div class="success-message">
+                    <p>Message Sent Successfully!</p>
+                    <!-- Green Tick Icon -->
+                    <div class="success-icon">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <!-- Success message text -->
+                    
+                </div>
+                
+                <button onclick="closeSuccessPopup()">OK</button>
+            </div>
         </div>
 
         <!-- Hidden by default, shown on button click -->
@@ -53,134 +104,194 @@
             <h2 class="section-title">My Projects</h2>
             <div class="projects-container">
                 <div class="project-card">
+                    <img src="./images/FutureAcademy.png" alt="Future Academy" class="project-image">
                     <h3>After-School Classes Website</h3>
                     <p>Vue.js frontend with MongoDB backend for managing courses and orders.</p>
                     <a href="https://kabeer62.github.io/FutureAcademy1/" target="_blank">View Project</a>
                 </div>
-            </div>
-        </section>
-        <section id="about" class="about-section" style="display: none;">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="./images/profile.jpeg" alt="Kabeer Kumar">
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="./images/Game.png" alt="Space Invaders" class="project-image-1">
+                    <h3>Space Invaders Game</h3>
+                    <p>Classic arcade game recreated using HTML, CSS, and JavaScript. Features responsive controls and
+                        shooting logic.</p>
+                    <a href="https://kabeer62.github.io/Space-Invaders-Game/index.html" target="_blank">Play Game</a>
                 </div>
-                <div class="about-content">
-                    <h2>About Me</h2>
-                    <p>
-                        Hello! I'm <strong>Kabeer Kumar</strong>, an IT graduate based in Dubai, United Arab Emirates.
-                        I have a strong passion for building beautiful, functional, and responsive websites.
-                    </p>
-                    <p>
-                        I specialize in frontend development and love working with technologies like
-                        <strong>Vue.js</strong>, <strong>JavaScript</strong>, and <strong>MongoDB</strong>. My journey
-                        began with curiosity and
-                        turned into a deep passion for crafting digital experiences that are user-centric and efficient.
-                    </p>
-                    <p>
-                        Beyond the web, I also have a deep love for Python. I recently created a voice-controlled
-                        AI-powered Virtual Assistant using
-                        <strong>Python</strong>, <strong>TensorFlow</strong>, and <strong>Speech Recognition</strong>
-                        libraries.
-                        This project allowed me to explore natural language processing, machine learning, and system
-                        automation — all through Python.
-                    </p>
-                    <p>
-                        From building dynamic websites for academic projects to developing smart AI tools, I’m
-                        continuously exploring
-                        how technology can solve real-world problems and enhance user experience.
-                    </p>
-                    <a href="#" class="btn btn-skills" onclick="toggleSkillsPopup()">View Skills</a>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="./images/background23.png" alt="Social Media Platform" class="project-image">
+                    <h3>Ciphera - Social Media Platform</h3>
+                    <p>A full-stack MERN (MongoDB, Express, React, Node.js) web app for users to create profiles, post
+                        updates, and interact.</p>
+                    <a href="https://kabeer62.github.io/Ciphera-Social-Media/leftbar.html" target="_blank">Visit
+                        Platform</a>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <img src="./images/background.webp" alt="Social Media Platform" class="project-image">
+                    <h3>Nova Virtual Assistant</h3>
+                    <p>Python-based voice-controlled AI assistant with NLP, speech recognition, and system control
+                        functionalities.</p>
+                    <a href="#" class="btn btn-details" onclick="toggleDetailsPopup()">View Details</a>
                 </div>
             </div>
-        </section>
-        <div id="skills-popup" class="skills-popup">
-            <div class="skills-popup-content">
-                <span class="close-btn" onclick="toggleSkillsPopup()">&times;</span>
-                <h2>My Skills</h2>
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3>Frontend</h3>
-                        <ul>
-                            <li>Vue.js</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Backend</h3>
-                        <ul>
-                            <li>MongoDB</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>RESTful APIs</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Tools</h3>
-                        <ul>
-                            <li>Git</li>
-                            <li>VS Code</li>
-                            <li>Postman</li>
-                            <li>Render</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Python & AI</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>TensorFlow</li>
-                            <li>SpeechRecognition</li>
-                            <li>pyttsx3</li>
-                            <li>Natural Language Processing (NLP)</li>
-                        </ul>
-                    </div>
+    </div>
+    </section>
+    <div id="details-popup" class="details-popup">
+        <div class="details-popup-content">
+            <span class="close-btn" onclick="toggleDetailsPopup()">&times;</span>
+            <h2>Project Details</h2>
+            <div class="details-container">
+                <div class="detail-category">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li>Project Name: Nova Virtual Assistant</li>
+                        <li>Description: An AI-powered virtual assistant using voice recognition and deep learning.</li>
+                        <li>Technologies Used: Python, TensorFlow, Speech Recognition, etc.</li>
+                    </ul>
+                </div>
+                <div class="detail-category">
+                    <h3>Features</h3>
+                    <ul>
+                        <li>Voice-controlled interactions</li>
+                        <li>Natural Language Processing</li>
+                        <li>Web Browsing and Scheduling</li>
+                    </ul>
+                </div>
+                <div class="detail-category">
+                    <h3>Objective</h3>
+                    <ul>
+                        <li>To create a functional and efficient virtual assistant.</li>
+                        <li>To integrate deep learning and speech recognition techniques.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="contact-section" style="display: none;">
-            <div class="contact-container">
-                <!-- Left Image -->
-                <div class="contact-image">
-                    <img src="./images/contact.jpeg" alt="Building">
-                </div>
-
-                <!-- Right Info -->
-                <div class="contact-content">
-                    <h2 class="section-title">My Contact</h2>
-                    <p class="contact-description">
-                        Feel free to reach out for collaboration, freelance opportunities, or just to say hi!
-                    </p>
-                    <ul class="contact-details">
-                        <li><i class="fas fa-phone"></i> +971563636822</li>
-                        <li><i class="fas fa-globe"></i> https://kabeer62.github.io/FutureAcademy1/</li>
-                        <li><i class="fas fa-envelope"></i> Kabeerkumar577@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Dubai, United Arab Emirates</li>
+    </div>
+    </div>
+    </section>
+    <section id="about" class="about-section" style="display: none;">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="./images/profile.jpeg" alt="Kabeer Kumar">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>
+                    Hello! I'm <strong>Kabeer Kumar</strong>, an IT graduate based in Dubai, United Arab Emirates.
+                    I have a strong passion for building beautiful, functional, and responsive websites.
+                </p>
+                <p>
+                    I specialize in frontend development and love working with technologies like
+                    <strong>Vue.js</strong>, <strong>JavaScript</strong>, and <strong>MongoDB</strong>. My journey
+                    began with curiosity and
+                    turned into a deep passion for crafting digital experiences that are user-centric and efficient.
+                </p>
+                <p>
+                    Beyond the web, I also have a deep love for Python. I recently created a voice-controlled
+                    AI-powered Virtual Assistant using
+                    <strong>Python</strong>, <strong>TensorFlow</strong>, and <strong>Speech Recognition</strong>
+                    libraries.
+                    This project allowed me to explore natural language processing, machine learning, and system
+                    automation — all through Python.
+                </p>
+                <p>
+                    From building dynamic websites for academic projects to developing smart AI tools, I’m
+                    continuously exploring
+                    how technology can solve real-world problems and enhance user experience.
+                </p>
+                <a href="#" class="btn btn-skills" onclick="toggleSkillsPopup()">View Skills</a>
+            </div>
+        </div>
+    </section>
+    <div id="skills-popup" class="skills-popup">
+        <div class="skills-popup-content">
+            <span class="close-btn" onclick="toggleSkillsPopup()">&times;</span>
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>Vue.js</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
                     </ul>
-                    <div class="social-icons">
-                        <a href="https://github.com/kabeer62" target="_blank" class="icon-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/kabeer-kumar-765b47267/" target="_blank" class="icon-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>MongoDB</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                        <li>Postman</li>
+                        <li>Render</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Python & AI</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>TensorFlow</li>
+                        <li>SpeechRecognition</li>
+                        <li>pyttsx3</li>
+                        <li>Natural Language Processing (NLP)</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <footer id="main-footer">
-            <div class="footer-content">
-                <p>&copy; 2025 Kabeer Kumar. All rights reserved.</p>
-                <div class="footer-icons">
-                    <a href="https://github.com/kabeer62" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/kabeer-kumar-765b47267/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section" style="display: none;">
+        <div class="contact-container">
+            <!-- Left Image -->
+            <div class="contact-image">
+                <img src="./images/contact.jpeg" alt="Building">
+            </div>
+
+            <!-- Right Info -->
+            <div class="contact-content">
+                <h2 class="section-title">My Contact</h2>
+                <p class="contact-description">
+                    Feel free to reach out for collaboration, freelance opportunities, or just to say hi!
+                </p>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone"></i> +971563636822</li>
+                    <li><i class="fas fa-globe"></i> https://kabeer62.github.io/FutureAcademy1/</li>
+                    <li><i class="fas fa-envelope"></i> Kabeerkumar577@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Dubai, United Arab Emirates</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://github.com/kabeer62" target="_blank" class="icon-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kabeer-kumar-765b47267/" target="_blank" class="icon-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Kabeer Kumar. All rights reserved.</p>
+            <div class="footer-icons">
+                <a href="https://github.com/kabeer62" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kabeer-kumar-765b47267/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
     </div>
 
 
@@ -258,6 +369,66 @@
             projectsSection.style.display = "block";
             window.scrollTo(0, 0);
         });
+
+        function toggleDetailsPopup() {
+            const popup = document.getElementById("details-popup");
+            popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+        }
+
+        window.onclick = function (event) {
+            const popup = document.getElementById("details-popup");
+            if (event.target === popup) {
+                popup.style.display = "none";
+            }
+        }
+
+        // Function to toggle the modal visibility
+        function toggleResumePopup() {
+            const popup = document.getElementById("resume-popup");
+            popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+        }
+
+        // Close modal if clicked outside of the modal content
+        window.onclick = function (event) {
+            const popup = document.getElementById("resume-popup");
+            if (event.target === popup) {
+                popup.style.display = "none";
+            }
+        }
+
+        // Function to toggle the modal visibility for Contact form
+function toggleContactPopup() {
+    const popup = document.getElementById("contact-popup");
+    popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+}
+
+// Close modal if clicked outside of the modal content
+window.onclick = function (event) {
+    const popup = document.getElementById("contact-popup");
+    if (event.target === popup) {
+        popup.style.display = "none";
+    }
+}
+
+function sendMessage(event) {
+    event.preventDefault(); // Prevent form submission to keep the page from refreshing
+
+    // Show success message
+    const successPopup = document.getElementById("success-popup");
+    successPopup.style.display = "flex";
+
+    // Close the contact form popup
+    toggleContactPopup();
+
+    // Optionally, clear form fields
+    document.getElementById("contactForm").reset();
+}
+
+// Close success popup
+function closeSuccessPopup() {
+    const successPopup = document.getElementById("success-popup");
+    successPopup.style.display = "none";
+}
     </script>
 </body>
 
