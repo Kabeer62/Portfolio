@@ -124,10 +124,10 @@ nav .navigation ul li a.active {
     background-color: #00acc1;
   }
   
-  .btn-secondary {
+  /* .btn-secondary {
     background-color: white;
     color: black;
-  }
+  } */
   
   .btn-outline {
     background-color: transparent;
@@ -141,7 +141,7 @@ nav .navigation ul li a.active {
   }
 
   .projects-section {
-    height: 49rem;
+    height: 70rem;
     background-color: #1a1a1a;
     color: white;
     text-align: center;
@@ -149,7 +149,7 @@ nav .navigation ul li a.active {
   
   .section-title {
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding: 100px;
     color: #00bcd4;
   }
@@ -166,8 +166,27 @@ nav .navigation ul li a.active {
     padding: 20px;
     border-radius: 8px;
     width: 32rem;
-    height: 15rem;
+    height: 22rem;
     transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .project-image {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: white;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  .project-image-1{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 10px;
+    display: block;
   }
   
   .project-card h3 {
@@ -544,13 +563,6 @@ nav .navigation ul li a.active {
         text-align: center;
       }
       
-      .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 40px;
-        padding: 100px;
-        color: #00bcd4;
-      }
-      
       .projects-container {
         display: flex;
         justify-content: center;
@@ -566,6 +578,25 @@ nav .navigation ul li a.active {
         height: 15rem;
         transition: transform 0.3s ease, background 0.3s ease;
       }
+
+      .project-image {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: white;
+        margin: 0 auto 10px;
+        display: block;
+      }
+    
+      .project-image-1{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 10px;
+        display: block;
+      }
       
       .project-card h3 {
         color: white;
@@ -576,14 +607,14 @@ nav .navigation ul li a.active {
       .project-card p {
         color: #ccc;
         font-size: 14px;
-        margin-bottom: 90px;
+        margin-bottom: 40px;
         text-align: left;
       }
       
       .project-card a {
         text-decoration: none;
         color: #e1e1e1;
-        padding: 12px 24px;
+        padding: 10px 15px;
         font-weight: 600;
         border-radius: 5px;
         transition: 0.3s ease;
@@ -721,6 +752,7 @@ nav .navigation ul li a.active {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        margin-bottom: 7rem;
       }
       
       .contact-content {
@@ -732,9 +764,9 @@ nav .navigation ul li a.active {
       .section-title {
         font-size: 1.5rem;
         font-weight: bold;
-        margin-top: -7rem;
-        margin-bottom: 5rem;
-        border-bottom: 1px solid #fff;
+        margin-top: -5rem;
+        margin-bottom: -2rem;
+        border-bottom: 0px solid #fff;
         display: inline-block;
       }
       
@@ -776,3 +808,244 @@ nav .navigation ul li a.active {
         color: #00c3ff;
       }
   }
+
+  .details-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.details-popup-content {
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+.details-popup h2 {
+    color: #001d2b;
+    margin-bottom: 20px;
+}
+
+.details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.detail-category h3 {
+    color: #00bcd4;
+    margin-bottom: 10px;
+}
+
+.detail-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-category li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Modal background styling */
+.resume-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content styling */
+.resume-popup-content {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+/* Heading inside the modal */
+.resume-popup h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Button container inside modal */
+.download-btn-container {
+  margin-top: 20px;
+}
+
+/* Button inside the modal */
+.download-btn-container .btn {
+  font-size: 16px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* Modal background styling */
+.contact-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content styling */
+.contact-popup-content {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+}
+
+/* Form labels and inputs */
+form label {
+  margin: 10px 0;
+  display: block;
+  text-align: left;
+  color: #fff;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #008c9e;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+.success-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.success-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #4CAF50; /* Green background */
+  border-radius: 50%; /* Circular shape */
+  color: white; /* White icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for 3D effect */
+}
+
+.success-icon i {
+  font-size: 20px; /* Adjust the icon size */
+}
+
+.popup-content p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.popup button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.popup button:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+}
+
+.popup button:active {
+  background-color: #388e3c;
+  transform: translateY(0);
+}
